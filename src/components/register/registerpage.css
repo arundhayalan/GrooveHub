@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+  }
+  .registration-grid {
+      height: 100vh;
+    }
+  
+    .registration-column {
+      max-width: 450px;
+    }

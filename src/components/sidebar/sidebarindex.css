@@ -1,0 +1,29 @@
+.sidebar-container{
+    width: 90px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+}
+
+.sidebartop-container{
+    width: 70px;
+    height: 113px;
+    border-radius: 7px;
+  background-color: rgb(18, 18, 18);  
+   color: white;
+  padding: auto;
+  
+}
+
+.sidebarmiddle-container{
+    width: 70px;
+    height: 100%;
+    margin: 8px auto;
+    border-radius: 7px;
+    background-color: rgb(18, 18, 18);  
+   color: white;
+  padding: auto;
+}
