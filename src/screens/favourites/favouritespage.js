@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Favouritespage = () => {
+const Favouritespage = ({screenWidth}) => {
   return (
-    <div className='screen-containter'>
-      DDDDD
+    <div  className={`screen-container ${screenWidth ? 'library-clicked' : ''}`}>
+      <div style={{ color: "white"}}>favourites </div>
     </div>
   )
 }

@@ -4,18 +4,50 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    
     padding-top: 8px;
+   
+    
+    
+}
+
+.sidebar-container.library-clicked{
+  width: 412px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
 }
 
 .sidebartop-container{
     width: 70px;
     height: 113px;
     border-radius: 7px;
-  background-color: rgb(18, 18, 18);  
+  background-color: rgb(20, 20, 20);  
    color: white;
   padding: auto;
   
+  
+}
+
+
+
+.sidebartop-container.library-clicked{
+  
+  width: 390px;
+    height: 134px;
+    border-radius: 7px;
+    padding-right: 320px;    
+  background-color: rgb(20, 20, 20);  
+  
+   color: white;
+  padding: auto;
+  
+
+
+
 }
 
 .sidebarmiddle-container{
@@ -23,7 +55,45 @@
     height: 100%;
     margin: 8px auto;
     border-radius: 7px;
-    background-color: rgb(18, 18, 18);  
+    background-color: rgb(20, 20, 20);  
+   color: white;
+  padding: auto;
+
+
+}
+
+.sidebarmiddle-container.library-clicked{
+  width: 390px;
+  height: 100%;
+    margin: 8px auto;
+    padding-right: 320px;
+    border-radius: 7px;
+    background-color: rgb(20, 20, 20);  
    color: white;
   padding: auto;
 }
+
+.text-body{
+  height: 54px;
+  width: 390px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 15px;
+  cursor: pointer;
+  
+}
+
+.text-body:hover{
+  color: #fff;
+
+}
+.add-icon{
+  
+ position: absolute;
+ top: 14px;
+  right: 18px;
+}
+
+
+
+
