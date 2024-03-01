@@ -1,22 +1,22 @@
-a {
-    text-decoration: none !important;
-}
 
-.btn-body{
+
+.txt-body{
     height: 50px;
-    width: 40px;
+    width: 100px;
     border-radius: 20px;
+    font-weight: bold;
+    font-size: 15px;
     color: rgb(175, 174, 174);
     display: flex;
-    padding-top: 10px;
+    align-items: center;
     justify-content: center;
-    margin: 4px auto;
+    margin: 2px auto;
     transition: all 0.2s ease;
-     background-color: rgba(244, 187, 146,0.0); 
+    background-color: rgba(244, 187, 146,0.0);
 }
 
 
-.btn-body.active{
+.txt-body.active{
     
     color: #fff;
     box-shadow: white;
@@ -25,7 +25,7 @@ a {
 
 
 
-.btn-body:hover{
+.txt-body:hover{
     color: #fff;
 }
 
