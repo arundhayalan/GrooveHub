@@ -14,7 +14,8 @@ const Sidebarindex = ({ setScreenWidth }) => {
 
   const handleLibraryClick = () => {
     setIsLibraryClicked(!isLibraryClicked);
-    // Show titles when Library button is clicked
+    
+    
   };
   const handleIconClick = () => {
     if (isLibraryClicked) {
@@ -48,7 +49,7 @@ const Sidebarindex = ({ setScreenWidth }) => {
         <div className={isLibraryClicked ? "text-body" : ""} onClick={() => handleClick("/trending")}>
 
         {/* handleIconClick() --> I have used function call directly coz i need to check that method once for every action done in handleLibrary */}
-        <Sidebarbutton to="/trending" onClick={handleIconClick()} icon={<FaGripfire />} />
+        <Sidebarbutton to="/trending" onClick={() => handleIconClick()} icon={<FaGripfire />} />
         <div>
             {isLibraryClicked ? (
               <Sidebartext title="Trending" to="/trending" />
@@ -61,8 +62,8 @@ const Sidebarindex = ({ setScreenWidth }) => {
       {/* For the middle sidebar*/}
       <div className={`sidebarmiddle-container ${isLibraryClicked ? "library-clicked" : ""}`} >
       
-      <div className={isLibraryClicked ? "text-body" : ""} onClick={handleLibraryClick} libraryClicked={isLibraryClicked}>
-        <Sidebarbutton  icon={<IoLibrary />} onClick={handleLibraryClick} libraryClicked={isLibraryClicked}/>
+      <div className={isLibraryClicked ? "text-body" : ""} onClick={handleLibraryClick}>
+        <Sidebarbutton  icon={<IoLibrary />} onClick={handleLibraryClick} libraryclicked={isLibraryClicked}/>
         
             {isLibraryClicked ? (
               <Sidebartext title="Your Library"  />

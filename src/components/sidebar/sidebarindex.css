@@ -1,99 +1,175 @@
-.sidebar-container{
-    width: 90px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    padding-top: 8px;
-   
-    
-    
+.sidebar-container {
+  width: 70px;
+  height: 89.6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  transition: all 0.40s;
 }
 
-.sidebar-container.library-clicked{
-  width: 412px;
-  height: 100%;
+.sidebar-container.library-clicked {
+  width: 340px;
+  height: 89.6%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding-top: 8px;
+  transition: all 0.40s;
 }
 
-.sidebartop-container{
-    width: 70px;
-    height: 113px;
-    border-radius: 7px;
-  background-color: rgb(20, 20, 20);  
-   color: white;
+.sidebartop-container {
+  width: 50px;
+  height: 113px;
+  border-radius: 7px;
+  background-color: rgb(20, 20, 20);
+  color: white;
   padding: auto;
-  
-  
+  transition: all 0.40s;
 }
 
 
 
-.sidebartop-container.library-clicked{
-  
-  width: 390px;
-    height: 134px;
-    border-radius: 7px;
-    padding-right: 320px;    
-  background-color: rgb(20, 20, 20);  
-  
-   color: white;
+.sidebartop-container.library-clicked {
+  width: 190px;
+  height: 113px;
+  border-radius: 7px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.40s;
+}
+
+.sidebarmiddle-container {
+  width: 50px;
+  height: 90%;
+  margin: 8px auto;
+  border-radius: 7px;
+  background-color: rgb(20, 20, 20);
+  color: white;
   padding: auto;
-  
-
-
-
+  position: relative;
+  transition: all 0.40s;
 }
-
-.sidebarmiddle-container{
-    width: 70px;
-    height: 100%;
-    margin: 8px auto;
-    border-radius: 7px;
-    background-color: rgb(20, 20, 20);  
-   color: white;
+.sidebarmiddle-container.library-clicked {
+  width: 190px;
+  height: 90%;
+  margin: 8px auto;
+  border-radius: 7px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  display: flex;
   padding: auto;
-
-
+  transition: all 0.50s;
 }
-
-.sidebarmiddle-container.library-clicked{
-  width: 390px;
-  height: 100%;
-    margin: 8px auto;
-    padding-right: 320px;
-    border-radius: 7px;
-    background-color: rgb(20, 20, 20);  
-   color: white;
-  padding: auto;
-}
-
-.text-body{
+.text-body {
   height: 54px;
   width: 390px;
   display: flex;
   flex-direction: row;
   padding-left: 15px;
   cursor: pointer;
-  
 }
-
-.text-body:hover{
+.text-body:hover {
   color: #fff;
 
 }
-.add-icon{
-  
- position: absolute;
- top: 14px;
-  right: 18px;
+.add-icon {
+  top: 15px;
+  right: 10px;
+  position: absolute;
 }
 
+@media screen and (min-width : 513px) {
+  .sidebar-container {
+    width: 90px;
+    transition: all 0.40s;
+  }
+  .sidebar-container.library-clicked {
+    width: 650px;
+  }
+  .sidebartop-container {
+    width: 70px;
+  }
+  .sidebartop-container.library-clicked {
 
+    width: 290px;
+  }
+  .sidebarmiddle-container {
+    width: 70px;
+  }
+  .sidebarmiddle-container.library-clicked {
+    width: 290px;
+  }
 
+}
 
+@media screen and (min-width : 644px){
+  .sidebar-container.library-clicked{
+    width: 520px;
+  }
+  .sidebartop-container.library-clicked {
+    width: 310px;
+  }
+  .sidebarmiddle-container.library-clicked {
+    width: 310px;
+  }
+}
+
+@media screen and (min-width : 811px){
+  .sidebar-container.library-clicked{
+    width: 550px;
+  }
+  .sidebartop-container.library-clicked {
+    width: 330px;
+  }
+  .sidebarmiddle-container.library-clicked {
+    width: 330px;
+  }
+}
+
+@media screen and (min-width : 1040px) {
+  
+  .sidebar-container.library-clicked {
+    width: 580px;
+  }
+  .sidebartop-container.library-clicked {
+    width: 380px;
+  }
+  .sidebarmiddle-container.library-clicked {
+    width: 380px;
+
+  }
+
+}
+@media screen and (min-width : 1162px){
+  
+  .sidebar-container.library-clicked {
+    width: 550px;
+  }
+  .sidebartop-container.library-clicked {
+    width: 380px;
+  }
+  .sidebarmiddle-container.library-clicked {
+    width: 380px;
+
+  }
+
+}
+
+@media screen and (min-width : 1400px) {
+  
+  .sidebar-container.library-clicked {
+    width: 520px;
+  }
+  .sidebartop-container.library-clicked {
+    width: 380px;
+  }
+  .sidebarmiddle-container.library-clicked {
+    width: 380px;
+
+  }
+
+}

@@ -3,6 +3,7 @@ import { Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import './Login.css';
 import axios from 'axios';
+import { loginEndpoint } from '../../spotifyApi';
 
 
 const Login = () => {
@@ -20,6 +21,7 @@ const Login = () => {
     
         if (loginSuccess) {
           setPopUp(true);
+          window.location.href = loginEndpoint;
           const timer = setTimeout(() => {
             setPopUp(false)
           }, 1000)
