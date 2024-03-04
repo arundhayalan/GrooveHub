@@ -17,8 +17,15 @@ import './homepage.css';
 
 
 const Homepage = () => {
-  const [ screenWidth , setScreenWidth] = useState(false);
+  console.log("homepage")
   const [token, setToken] = useState("");
+  const [isLibraryClicked, setIsLibraryClicked] = useState(false);
+
+  const handleLibraryClick = () => {
+    setIsLibraryClicked(!isLibraryClicked);
+    
+    
+  };
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -42,14 +49,14 @@ const Homepage = () => {
         
        
          
-         <Sidebarindex setScreenWidth={setScreenWidth} />
+         <Sidebarindex  isLibraryClicked={isLibraryClicked} handleLibraryClick={handleLibraryClick}/>
        
          
      <Routes>
         
          <Route path="/" element={<Librarypage />} />
-         <Route path='/trending' element={<Trendingpage screenWidth={screenWidth} />}/>
-         <Route path='/favourites' element={<Favouritespage screenWidth={screenWidth}/>} />
+         <Route path='/trending' element={<Trendingpage  isLibraryClicked={isLibraryClicked}/>}/>
+         <Route path='/favourites' element={<Favouritespage />} />
          <Route path='/register' element={<Registerpage />} />
          <Route path='/login' element={<Login />} />  
          

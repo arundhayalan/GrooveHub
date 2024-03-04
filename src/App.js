@@ -7,6 +7,7 @@ import Homepage from './screens/home/homepage';
 
 function App() {
 
+  console.log("app");
   
   return (
     <div>

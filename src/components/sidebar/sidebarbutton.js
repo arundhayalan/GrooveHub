@@ -21,7 +21,7 @@ const Sidebarbutton = ({ to, icon, onClick }) => {
    
     return (
 
-      <Link to={to} onClick={handleClick}>
+      <Link  onClick={handleClick}>
         <div className={btnClass} >
           <IconContext.Provider value={{ size: "24px", className: "btn-icon" }}>
             {icon}
