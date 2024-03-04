@@ -5,7 +5,6 @@
     margin-right: 7px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     background: linear-gradient(#13193c, #0f0e0e);
     border-radius: 7px;
 
@@ -15,31 +14,7 @@
   right: 30px;
   
 }
-.screen-container.library-clicked {
-    width: calc(100% - 120px);
-    
-}
 
-@media screen and (min-width: 513px) {
-    .screen-container.library-clicked{
-        width: calc(100% - 270px);
-        display: flex;
-    }
-}
-@media screen and (min-width : 644px){
-    
-    .screen-container.library-clicked{
-        width: calc(100% - 270px);
-        display: flex;
-    }
-  }
-  
-@media screen and (min-width : 811px){
-    .screen-container.library-clicked{
-        width: calc(100% - 270px);
-        display: flex;
-    }
-  }
 
  
 

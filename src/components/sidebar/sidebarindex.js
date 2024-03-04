@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./sidebarindex.css";
 import Sidebarbutton from "./sidebarbutton";
 import { FaGripfire } from "react-icons/fa";
@@ -8,22 +8,13 @@ import Sidebartext from "./sidebartext";
 import { useNavigate } from "react-router-dom";
 import { LuPlus } from "react-icons/lu";
 
-const Sidebarindex = ({ setScreenWidth }) => {
-  const [isLibraryClicked, setIsLibraryClicked] = useState(false);
+const Sidebarindex = ({ isLibraryClicked, handleLibraryClick }) => {
+  
+  console.log("sidebar")
+  
   const navigate = useNavigate();
 
-  const handleLibraryClick = () => {
-    setIsLibraryClicked(!isLibraryClicked);
-    
-    
-  };
-  const handleIconClick = () => {
-    if (isLibraryClicked) {
-      setScreenWidth(true);
-    } else {
-      setScreenWidth(false);
-    }
-  };
+  
   const handleClick = (name) => {
     navigate(name);
   };
@@ -49,7 +40,7 @@ const Sidebarindex = ({ setScreenWidth }) => {
         <div className={isLibraryClicked ? "text-body" : ""} onClick={() => handleClick("/trending")}>
 
         {/* handleIconClick() --> I have used function call directly coz i need to check that method once for every action done in handleLibrary */}
-        <Sidebarbutton to="/trending" onClick={() => handleIconClick()} icon={<FaGripfire />} />
+        <Sidebarbutton to="/trending"  icon={<FaGripfire />} />
         <div>
             {isLibraryClicked ? (
               <Sidebartext title="Trending" to="/trending" />

@@ -1,0 +1,138 @@
+.playlist-container {
+    width:100%;
+    height: 100%;
+    padding: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-y: auto;
+    gap: 10px;
+    column-gap: 5px;
+  }
+
+  .playlist-container.library-clicked{
+    width: 100%;
+    justify-content: center;
+    column-gap: 20px;
+    overflow-y:auto;
+    
+  }
+  
+  .tracks-card {
+    width: calc(100% - 85%); 
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    color: white;
+    background-color: rgb(24, 24, 24);
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    
+  }
+
+  .tracks-card:hover{
+    background-color: rgb(38, 38, 38);
+    transition: all 0.20s ease-in-out;
+    transform: scale(1.01);
+
+
+  }
+  
+  .tracks-card.library-clicked{
+    width: calc(100% - 82%);
+  }
+
+.tracks-card.library-clicked:hover{
+
+        background-color: rgb(38, 38, 38);
+        transition: all 0.20s ease-in-out;
+        transform: scale(1.01);
+}
+
+  .track-img{
+    width: 105%;
+    align-self: center;
+    height: 68%;
+    border-radius: 8px;
+    box-shadow:  0 2px 20px rgb(2, 2, 2);
+  }
+
+ 
+
+  .track-name {
+    width: 100%;
+    font-weight: bold;
+    margin-top: 10px;
+    
+    
+  }
+  
+
+  .track-artist {
+    padding-bottom: 20%;
+    width: 70%;
+    color: rgb(190, 188, 188);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    
+  }
+  
+  
+  @media screen and (max-width: 1264px) {
+    
+    .tracks-card {
+      width: calc(100% - 82%);
+      height: 45%;
+      
+    }
+    
+    .tracks-card.library-clicked{
+        width: calc(100% - 70%);
+      }
+  }
+  @media screen and (max-width: 898px) {
+    
+    .tracks-card {
+      width: calc(100% - 70%);
+      height: 45%;
+      
+    }
+    .tracks-card.library-clicked{
+        width: calc(100% - 55%);
+      }
+  }
+
+  @media screen and (max-width: 720px) {
+    .tracks-card {
+        width: calc(100% - 60%);
+      height: 45%;
+    }
+    .tracks-card.library-clicked{
+        width: calc(100% - 20%);
+      }
+  }
+
+  @media screen and (max-width: 590px) {
+    .tracks-card {
+        width: calc(100% - 54%);
+      height: 45%;
+    }
+    .tracks-card.library-clicked{
+        width: calc(100% - 10%);
+      }
+   
+  }
+  @media screen and (max-width: 480px) {
+    .tracks-card {
+        width: calc(100% - 52%);
+      height: 33%;
+    }
+    
+      
+  }
+  
