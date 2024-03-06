@@ -20,12 +20,15 @@ const Homepage = () => {
   console.log("homepage")
   const [token, setToken] = useState("");
   const [isLibraryClicked, setIsLibraryClicked] = useState(false);
+  const [playsong, setPlaySong] = useState("");
 
   const handleLibraryClick = () => {
-    setIsLibraryClicked(!isLibraryClicked);
-    
-    
+    setIsLibraryClicked(!isLibraryClicked); 
   };
+
+  const playIt = (id) =>{
+    setPlaySong(id);
+  }
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -55,7 +58,7 @@ const Homepage = () => {
      <Routes>
         
          <Route path="/" element={<Librarypage />} />
-         <Route path='/trending' element={<Trendingpage  isLibraryClicked={isLibraryClicked}/>}/>
+         <Route path='/trending' element={<Trendingpage  isLibraryClicked={isLibraryClicked} playtrack={playIt}/>}/>
          <Route path='/favourites' element={<Favouritespage />} />
          <Route path='/register' element={<Registerpage />} />
          <Route path='/login' element={<Login />} />  
@@ -63,7 +66,7 @@ const Homepage = () => {
      </Routes>  
      
      <div className='player-body'>
-     <Player />
+     <Player nowplaying={playsong} />
      </div>
      </div>
      

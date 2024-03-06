@@ -17,6 +17,7 @@
   justify-content: space-between;
   padding-top: 8px;
   transition: all 0.40s;
+  
 }
 
 .sidebartop-container {
@@ -61,8 +62,10 @@
   background-color: rgb(20, 20, 20);
   color: white;
   display: flex;
+  flex-direction: column;
   padding: auto;
   transition: all 0.50s;
+  
 }
 .text-body {
   height: 54px;
@@ -80,6 +83,140 @@
   top: 15px;
   right: 10px;
   position: absolute;
+}
+
+.inside-container{
+  margin-top: 14px;
+  width: 100%;
+  height: 100%;
+ 
+}
+.chips{
+  
+  display: flex;
+  flex-direction: wrap;
+  gap: 15px;
+  align-items: center;
+  height: 32px;
+}
+
+.recent-chip{
+  background-color: rgb(30, 30, 30);
+  height: 100%;
+  width: 75px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.artist-chip{
+  background-color: rgb(30, 30, 30);
+  height: 100%;
+  width: 75px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.artist-chip.active{
+  background-color: white;
+  color: black;
+}
+
+.artists-container.library-clicked{
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.artists-card.library-clicked{
+  width: calc(100% - 50%); 
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+ 
+
+}
+
+.artists-card:hover{
+  background-color: rgb(38, 38, 38);
+  transition: all 0.20s ease-in-out;
+  transform: scale(1.01);
+
+
+}
+
+.tracks-card:hover .play-icon{
+  opacity: 1;
+  transform: translateY(-8px);
+}
+
+.artists-card.library-clicked:hover{
+
+      background-color: rgb(38, 38, 38);
+      transition: all 0.20s ease-in-out;
+      transform: scale(1.01);
+}
+
+
+.artists-img.library-clicked{
+  width: 100%;
+  align-self: center;
+  aspect-ratio: 1; 
+  border-radius: 8px;
+  box-shadow:  0 2px 20px rgb(2, 2, 2);
+}
+
+.play-icon{
+  position: absolute;
+  right: 0;
+bottom: 0;
+opacity: 0;
+width: 100%;
+height: 28%;
+border-radius: 20px;
+display: flex;
+align-items: flex-end;
+justify-content: flex-end;
+padding-right: 2%;
+transition: 0.5s ease;
+
+
+}
+
+.artist-name {
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;  
+}
+
+
+.track-artist {
+  padding-bottom: 20%;
+  width: 70%;
+  color: rgb(190, 188, 188);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  
 }
 
 @media screen and (min-width : 513px) {
@@ -169,6 +306,11 @@
   }
   .sidebarmiddle-container.library-clicked {
     width: 380px;
+
+  }
+  .artists-card.library-clicked{
+    width: calc(100% - 55%);
+    height: 40%;
 
   }
 
