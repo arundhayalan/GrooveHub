@@ -12,11 +12,14 @@
 
   .playlist-container.library-clicked{
     width: 100%;
-    justify-content: center;
-    column-gap: 20px;
-    overflow-y:auto;
+    display: flex;
+    flex-wrap: wrap;
     
+    column-gap: 10px;
+    overflow-y:auto;
+     
   }
+
   
   .tracks-card {
     width: calc(100% - 85%); 
@@ -29,7 +32,8 @@
     border-radius: 8px;
     padding: 20px;
     box-sizing: border-box;
-    
+    position: relative;
+    cursor: pointer;
     
   }
 
@@ -40,9 +44,15 @@
 
 
   }
-  
+  .tracks-card:hover .play-icon{
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+
   .tracks-card.library-clicked{
-    width: calc(100% - 82%);
+    width: calc(100% - 81%);
+    position: relative;
+
   }
 
 .tracks-card.library-clicked:hover{
@@ -52,15 +62,31 @@
         transform: scale(1.01);
 }
 
+
   .track-img{
-    width: 105%;
+    width: 100%;
     align-self: center;
-    height: 68%;
+    height: 100%;
     border-radius: 8px;
     box-shadow:  0 2px 20px rgb(2, 2, 2);
   }
 
+ .play-icon{
+    position: absolute;
+    right: 0;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  height: 28%;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 2%;
+  transition: 0.5s ease;
  
+  
+ }
 
   .track-name {
     width: 100%;
