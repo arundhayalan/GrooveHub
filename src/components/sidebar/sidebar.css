@@ -85,7 +85,13 @@
   position: absolute;
 }
 
-.inside-container{
+.inside-middle-container{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.inside-middle-container-library-clicked{
   margin-top: 14px;
   width: 100%;
   height: 100%;
@@ -100,7 +106,7 @@
   height: 32px;
 }
 
-.recent-chip{
+.playlists-chip{
   background-color: rgb(30, 30, 30);
   height: 100%;
   width: 75px;
@@ -109,6 +115,7 @@
   justify-content: center;
   align-items: center;
   margin-left: 15px;
+  cursor: pointer;
 }
 
 .artist-chip{
@@ -122,23 +129,77 @@
   cursor: pointer;
 }
 
+.close-chips{
+  background-color: rgb(30, 30, 30);
+  width: 8.5%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+
+}
+.close-chips:hover{
+  background-color: rgb(53, 53, 53);
+  transition: all 0.10s ease-in-out;
+}
+
 .artist-chip.active{
+  background-color: white;
+  color: black;
+  
+}
+
+.playlists-chip.active{
   background-color: white;
   color: black;
 }
 
-.artists-container.library-clicked{
-  height: 500px;
+.chips-container{
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-
+  flex-direction: column;
+  
+  row-gap: 1px;
   overflow-y: auto;
-  margin-top: 10px;
+ margin-top: 5px;
+ margin-left: 3.5px;
+ transition: all 1.5s ease-out;
 }
 
-.artists-card.library-clicked{
-  width: calc(100% - 50%); 
-  height: 45%;
+.chips-container-library-clicked{
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  margin-top: 10px;
+  justify-content: center;
+  
+  transition: all 1.5s ease-out;
+}
+
+.chips-card{
+  width: 90%; 
+  height: 8%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  color: white;
+  border-radius: 8px;
+  padding: 6px;
+  box-sizing: border-box;
+  align-items: center;
+  
+  cursor: pointer;
+}
+
+.chips-card-library-clicked{
+  width: calc(100% - 20%); 
+  height: 30%;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -148,32 +209,53 @@
   box-sizing: border-box;
   align-items: center;
   cursor: pointer;
- 
-
+  position: relative;
 }
 
-.artists-card:hover{
+.chips-card:hover{
   background-color: rgb(38, 38, 38);
   transition: all 0.20s ease-in-out;
+  
+}
+
+.chips-card-library-clicked:hover{
+  background-color: rgb(38, 38, 38);
+  color: white;
+  transition: all 0.20s ease-in-out;
   transform: scale(1.01);
-
-
 }
 
-.tracks-card:hover .play-icon{
+.play-icon-artist{
+  position: absolute;
+  right: 0;
+bottom: 0;
+opacity: 0;
+width: 50%;
+height: 18%;
+border-radius: 20px;
+display: flex;
+align-items: flex-end;
+justify-content: flex-end;
+padding-right: 4%;
+padding-bottom: 4%;
+transition: 0.5s ease;
+}
+
+.chips-card-library-clicked:hover .play-icon-artist{
   opacity: 1;
-  transform: translateY(-8px);
+  transform: translateY(-2px);
 }
 
-.artists-card.library-clicked:hover{
-
-      background-color: rgb(38, 38, 38);
-      transition: all 0.20s ease-in-out;
-      transform: scale(1.01);
+.cards-img{
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  box-shadow:  0 2px 20px rgb(2, 2, 2);
 }
 
-
-.artists-img.library-clicked{
+.cards-img-library-clicked{
   width: 100%;
   align-self: center;
   aspect-ratio: 1; 
@@ -181,42 +263,13 @@
   box-shadow:  0 2px 20px rgb(2, 2, 2);
 }
 
-.play-icon{
-  position: absolute;
-  right: 0;
-bottom: 0;
-opacity: 0;
-width: 100%;
-height: 28%;
-border-radius: 20px;
-display: flex;
-align-items: flex-end;
-justify-content: flex-end;
-padding-right: 2%;
-transition: 0.5s ease;
-
-
-}
-
-.artist-name {
-  width: 100%;
-  font-weight: bold;
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;  
-}
-
-
-.track-artist {
-  padding-bottom: 20%;
-  width: 70%;
-  color: rgb(190, 188, 188);
+.cards-name {
+  width: 90%;
+    font-weight: bold;
+    margin-top: 5px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 12px;
-  
 }
 
 @media screen and (min-width : 513px) {
@@ -240,7 +293,14 @@ transition: 0.5s ease;
   .sidebarmiddle-container.library-clicked {
     width: 290px;
   }
+  .chips-container-library-clicked{
+    height: 97%;
+  }
+  .chips-card-library-clicked{
+    width: calc(100% - 50%);
+    height: 31%;
 
+  }
 }
 
 @media screen and (min-width : 644px){
@@ -252,6 +312,13 @@ transition: 0.5s ease;
   }
   .sidebarmiddle-container.library-clicked {
     width: 310px;
+  }
+  .chips-container-library-clicked{
+    height: 95%;
+  }
+  .chips-card-library-clicked{
+    width: calc(100% - 50%);
+    height: 32%;
   }
 }
 
@@ -265,6 +332,17 @@ transition: 0.5s ease;
   .sidebarmiddle-container.library-clicked {
     width: 330px;
   }
+  .chips-container-library-clicked{
+    height: 91%;
+  }
+  .chips-card-library-clicked{
+    width: calc(100% - 50%);
+    height: 33%;
+  }
+  .chips-card{
+    height: 10%;
+    transition: all 0.2s ease;
+  }
 }
 
 @media screen and (min-width : 1040px) {
@@ -277,10 +355,17 @@ transition: 0.5s ease;
   }
   .sidebarmiddle-container.library-clicked {
     width: 380px;
+  }
+  .chips-container-library-clicked{
+    height: 88%;
+  }
+  .chips-card-library-clicked{
+    width: calc(100% - 55%);
+    height: 35%;
 
   }
-
 }
+
 @media screen and (min-width : 1162px){
   
   .sidebar-container.library-clicked {
@@ -292,6 +377,13 @@ transition: 0.5s ease;
   .sidebarmiddle-container.library-clicked {
     width: 380px;
 
+  }
+  .chips-container-library-clicked{
+    height: 88%;
+  }
+  .chips-card-library-clicked{
+    width: calc(100% - 55%);
+    height: 35%;
   }
 
 }
@@ -308,10 +400,38 @@ transition: 0.5s ease;
     width: 380px;
 
   }
-  .artists-card.library-clicked{
+  .chips-container{
+    margin-left: 8px;
+  }
+  .chips-container-library-clicked{
+    height: 87%;
+  }
+  .chips-card-library-clicked{
     width: calc(100% - 55%);
-    height: 40%;
+    height: 35%;
 
   }
+  .chips-card{
+    height: 10%;
+  }
 
+}
+
+@media screen and (min-width : 1430px){
+
+  .chips-container{
+    margin-left: 5px;
+    height: 490px;
+  }
+  .chips-container-library-clicked{
+    height: 470px;
+  }
+  .chips-card-library-clicked{
+    width: calc(100% - 55%);
+    height: 44%;
+
+  }
+  .chips-card{
+    height: 12%;
+  }
 }

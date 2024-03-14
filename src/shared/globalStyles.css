@@ -1,17 +1,17 @@
-.screen-container {
+.screen-container  {
     width: calc(100% - 70px);
     height: 87.8%;
     margin-top: 7px;
     margin-right: 7px;
     display: flex;
     flex-wrap: wrap;
-    background: linear-gradient(#13193c, #0f0e0e);
+    background-color: rgb(20, 20, 20);
     border-radius: 7px;
-
+    
+    
 }
-.header-page{
-    top: 29px;
-  right: 30px;
-  
+
+.screen-container:hover{
+    background: linear-gradient(#13193c, #0f0e0e); 
 }
 

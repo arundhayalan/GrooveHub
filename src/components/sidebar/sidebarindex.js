@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Sidebarbutton from "./sidebarbutton";
 import { FaGripfire } from "react-icons/fa";
 import { MdFavorite } from "react-icons/md";
@@ -6,37 +6,61 @@ import { IoLibrary } from "react-icons/io5";
 import Sidebartext from "./sidebartext";
 import { useNavigate } from "react-router-dom";
 import { LuPlus } from "react-icons/lu";
+import { IconContext } from 'react-icons';
+import { AiFillPlayCircle } from "react-icons/ai";
+
+import { IoMdClose } from "react-icons/io";
 import apiClient from '../../spotifyApi';
-import "./sidebarindex.css";
+import "./sidebar.css";
+import Sidebarplaylist from "./sidebarplaylist";
 
 const Sidebarindex = ({ isLibraryClicked, handleLibraryClick }) => {
   
  const [showArtists, setShowArtists] = useState([]);
+ const [showPlayLists, setShowPlayLists]  = useState([]);
  const [isActive, setIsActive] = useState(false);
+ const [isPlayListActive, setPlayListActive] = useState(false);
   
-  const navigate = useNavigate();
 
-  
-  const handleClick = (name) => {
-    navigate(name);
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const artistResponse = await apiClient.get('/me/following', {
+        params: { type: 'artist' }
+      });
+      setShowArtists(artistResponse.data.artists.items);
+      
+      const playlistResponse = await apiClient.get('/me/playlists');
+      setShowPlayLists(playlistResponse.data.items);
+      
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
-  const handleClickArtist = async () =>{
+  fetchData();
+}, []);
 
-    setIsActive(!isActive);
-    try {
-      const response = await apiClient.get('/me/following', {
-        params: {
-          type: 'artist'
-        }
-      });
-      setShowArtists(response.data.artists.items);
-      
-      console.log(response.data.artists);
-    } catch (error) {
-      console.error('Error fetching track details:', error);
-    }
-  }
+const navigate = useNavigate();
+
+const handleClick = (name) => {
+  navigate(name);
+};
+
+const handlecloseChipClick = () => {
+  setIsActive(false);
+  setPlayListActive(false);
+}
+
+const handleClickPlaylist = () =>{
+  setPlayListActive(true);
+  setIsActive(false);
+}
+
+const handleClickArtist = () =>{
+  setIsActive(true);
+  setPlayListActive(false);
+}
 
   return (
     <div className={`sidebar-container ${ isLibraryClicked ? "library-clicked" : "" }`}>
@@ -84,23 +108,72 @@ const Sidebarindex = ({ isLibraryClicked, handleLibraryClick }) => {
             )}
           </div>
 
-          <div className={isLibraryClicked ? "inside-container":""}>
+     
+          <div className={isLibraryClicked ? "inside-middle-container-library-clicked":"inside-middle-container"}>
             
               {isLibraryClicked && (
               <div className="chips">
-                 <div className="recent-chip">
+
+                 <div className={isPlayListActive ? "playlists-chip active": "playlists-chip"} onClick={handleClickPlaylist}>
                   <p>PlayLists</p></div>
                  <div className={isActive ? "artist-chip active": "artist-chip"} onClick={handleClickArtist}><p>Artists</p></div>
+                 {(isPlayListActive || isActive) && (<div className="close-chips" onClick={handlecloseChipClick}><IconContext.Provider value={{size: "15px" , color: "B3B6B3"}}>
+                <IoMdClose />
+            </IconContext.Provider> </div>)}
                 </div>
                 )}
 
-              <div className={`artists-container ${isLibraryClicked ? 'library-clicked' : ''}`} >
-               {showArtists.map(artist =>(
-                <div className={`artists-card ${isLibraryClicked ? 'library-clicked' : ''}`} key={artist.id}>
-                  <img  className={`artists-img ${isLibraryClicked ? 'library-clicked' : ''}`} src={artist.images[0].url}/>
-                  <div className={`artist-name ${isLibraryClicked ? 'library-clicked' : ''}`}> {artist.name}</div>
+                
+
+                {/* artist side container*/}
+
+              <div className={isLibraryClicked ? "chips-container-library-clicked": "chips-container"} >
+
+              {!isActive && !isPlayListActive && (<div className={isLibraryClicked ? "chips-container-library-clicked": "chips-container"}>
+
+                {
+                  showArtists.map(artist =>(
+                    <div className={isLibraryClicked ? "chips-card-library-clicked" : "chips-card"} key={artist.id}>
+                      <img  className={isLibraryClicked? "cards-img-library-clicked" : "cards-img"} src={artist.images[0].url} alt="artist"/>
+                      {isLibraryClicked && (<div className='cards-name'> {artist.name}</div>)}
+                      {isLibraryClicked && (<div className='play-icon-artist'>
+                  <IconContext.Provider value={{size: "35px" , color: "71E573"}}>
+                <AiFillPlayCircle />
+                </IconContext.Provider>
+                </div>)}
+                      </div>
+                   ))
+                }
+
+                {
+                  showPlayLists.map(playlist =>(
+                    <Sidebarplaylist key={playlist.id} playlist={playlist} isLibraryClicked={isLibraryClicked}/>
+    
+                   ))
+                }
+
+              </div>)}
+
+
+
+
+
+               {isActive && !isPlayListActive && showArtists.map(artist =>(
+                <div className={isLibraryClicked ? "chips-card-library-clicked" : "chips-card"} key={artist.id}>
+                  <img  className={isLibraryClicked? "cards-img-library-clicked" : "cards-img"} src={artist.images[0].url} alt="artist"/>
+                  {isLibraryClicked && (<div className='cards-name'> {artist.name}</div>)}
+                  {isLibraryClicked && (<div className='play-icon-artist'>
+              <IconContext.Provider value={{size: "35px" , color: "71E573"}}>
+            <AiFillPlayCircle />
+            </IconContext.Provider>
+            </div>)}
                   </div>
 
+               ))}
+               
+                {/* playlist side container*/}
+               {isPlayListActive && !isActive && showPlayLists.map(playlist =>(
+                <Sidebarplaylist key={playlist.id} playlist={playlist} isLibraryClicked={isLibraryClicked}/>
                ))}
                </div>
               
