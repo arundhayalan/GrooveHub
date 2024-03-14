@@ -4,18 +4,14 @@
     background-color: rgb(0, 0, 0);
     border-radius: 30px;
     display: flex;
-    position: relative;
+   position: relative;
     
 }
 body{
   width: 100vw;
 }
 
-.header-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+
 
 .player-body{
   bottom: 0;

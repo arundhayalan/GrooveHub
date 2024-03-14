@@ -1,6 +1,11 @@
 import React, { useEffect ,useState } from 'react'
+import { FaCirclePlay } from "react-icons/fa6";
+import { IoPlaySkipForward } from "react-icons/io5";
+
+import { IoPlaySkipBack } from "react-icons/io5";
 import apiClient from '../../spotifyApi';
 import './player.css'
+import { IconContext } from 'react-icons';
 
 const Player = ({nowplaying}) => {
 
@@ -32,6 +37,29 @@ const Player = ({nowplaying}) => {
             </div>
           </div>
         )}
+
+        <div className='middle-player'>
+          <div className='middle-inside-container'>
+            <div className='player-buttons'>
+              <IconContext.Provider value={{size: "24px"}}>
+                <IoPlaySkipBack />
+              </IconContext.Provider>
+              <IconContext.Provider value={{size: "34px"}}>
+                <FaCirclePlay />
+              </IconContext.Provider>
+              <IconContext.Provider value={{size: "24px"}}>
+                <IoPlaySkipForward />
+              </IconContext.Provider>
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+
+        <div className='side-player'>
+          hii
+        </div>
       </div>
     
   )

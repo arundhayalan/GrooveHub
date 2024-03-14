@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons';
 import { AiFillPlayCircle } from "react-icons/ai";
 import apiClient from '../../spotifyApi';
 import './trendingpage.css'
+import Header from '../../components/header/header';
 
 
 
@@ -32,6 +33,18 @@ const  Trendingpage = ({ isLibraryClicked , playtrack }) => {
 
   return (
     <div className='screen-container'>
+      
+
+      
+      <Header />
+   
+      
+     
+     
+      
+     
+        
+        
       <div className={`playlist-container ${isLibraryClicked ? 'library-clicked' : ''}`}>
         {tracks.map(track => (
           
